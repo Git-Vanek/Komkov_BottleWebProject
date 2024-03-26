@@ -19,6 +19,8 @@
     <Name>Komkov_BottleWebProject</Name>
     <RootNamespace>Komkov_BottleWebProject</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <WebBrowserPort>444</WebBrowserPort>
+    <InterpreterPath>D:\Programs\Python\Python310\python.exe</InterpreterPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
