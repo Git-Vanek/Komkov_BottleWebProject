@@ -12,8 +12,10 @@ def my_form():
     username = request.forms.get('USERNAME')
     # получение вопроса из формы
     question = request.forms.get('QUEST')
+    # создание списка
+    quest = [username, question]
     # создание словаря
-    questions = {mail : question}
+    questions = {mail : quest}
     # запуск отладчика
     pdb.set_trace()
     # возвращение сообщения
