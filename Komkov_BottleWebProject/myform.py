@@ -1,11 +1,20 @@
 import json
+import re
 from datetime import date
 from bottle import post, request
+
+# ћетод проверки почты
+def mailcheck(checkmail):
+    pattern = re.compile('[a-zA-Z0-9]{1}[a-zA-Z0-9._%+\-]{4,28}[a-zA-Z0-9]{1}@(gmail.com|mail.ru|yandex.ru)')
+    return re.fullmatch(pattern, checkmail)
 
 @post('/home', method='post')
 def my_form():
     # получение адреса из формы
     mail = request.forms.get('ADRESS')
+    # ѕроверка вводимой почты
+    if mailcheck(mail) == False:
+        return "The email format is incorrect. E-mail should consist only of Latin letters, numbers and special characters, as well as have from 6 to 30 characters at the beginning and either @gmail.com , or @mail.ru, or yandex.ru at the end."
     # получение имени из формы
     username = request.forms.get('USERNAME')
     # получение вопроса из формы
